@@ -23,6 +23,7 @@ import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.model.Transaction;
 public class PersistantTransactionDAO extends SQLiteOpenHelper implements TransactionDAO {
     public static final String DATABASE_NAME = "140398L";
     public PersistantTransactionDAO(Context context) {
+
         super(context, DATABASE_NAME, null, 1);
     }
 
