@@ -23,6 +23,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import lk.ac.mrt.cse.dbs.simpleexpensemanager.R;
 import lk.ac.mrt.cse.dbs.simpleexpensemanager.control.ExpenseManager;
@@ -79,6 +80,11 @@ public class AddAccountFragment extends Fragment implements View.OnClickListener
                     break;
                 }
 
+                if(!isNumeric(accountNumStr)){
+                    accountNumber.setError("Account Number should be a number");
+                    break;
+                }
+
                 if (bankNameStr.isEmpty()) {
                     bankName.setError(getActivity().getString(R.string.err_bank_name_empty));
                     break;
@@ -98,9 +104,15 @@ public class AddAccountFragment extends Fragment implements View.OnClickListener
                     currentExpenseManager.addAccount(accountNumStr, bankNameStr, accountHolderStr,
                             Double.parseDouble(initialBalanceStr));
                 }
+                Toast.makeText(getActivity(), "Account Created\nWait for a sec till we add to database", Toast.LENGTH_LONG).show();
                 cleanUp();
                 break;
         }
+    }
+
+    private boolean isNumeric(String str)
+    {
+        return str.matches("-?\\d+(\\.\\d+)?");  //match a number with optional '-' and decimal.
     }
 
     private void cleanUp() {
