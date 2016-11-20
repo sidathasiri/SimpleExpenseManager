@@ -43,7 +43,7 @@ public class PersistantTransactionDAO extends SQLiteOpenHelper implements Transa
         ContentValues contentValues = new ContentValues();
         contentValues.put("date", date.toString());
         contentValues.put("account_number", accountNo);
-        contentValues.put("type", String.valueOf(expenseType.values()[0]));
+        contentValues.put("type", expenseType.toString());
         contentValues.put("amount", amount);
         db.insert("logs", null, contentValues);
     }
