@@ -22,7 +22,7 @@ import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.model.ExpenseType;
  */
 public class PersistantAccountDAO extends SQLiteOpenHelper implements AccountDAO {
 
-    public static final String DATABASE_NAME = "140398L.db";
+    public static final String DATABASE_NAME = "140398L ";
     Context context;
     public PersistantAccountDAO(Context context) {
         super(context, DATABASE_NAME, null, 1);
